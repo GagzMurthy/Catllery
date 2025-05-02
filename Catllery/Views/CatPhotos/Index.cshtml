@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Catllery.Models.CatPhoto>
+
+@{
+    ViewData["Title"] = "Cat Gallery";
+}
+
+<div class="main-content">
+
+<p>
+    <a asp-action="Create" class="btn">Add New Photo</a>
+</p>
+
+@if (Model != null && Model.Any())
+{
+    <div class="cards-container">
+        @foreach (var item in Model)
+        {
+                <div class="card">
+                    <div class="card-img">
+                        <img src="@item.Url" class="img" alt="Cat Photo">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-title">
+                            <h3>@item.Caption</h3>
+                        </div>
+                        <div class="card-like">
+                            <p>Likes</p>
+                        </div>
+                        <div class="card-options">
+                            <a class="btn-light">Buy</a>
+                            <a asp-action="Update" asp-route-id="@item.Id" class="btn-light">Update</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn-light">Delete</a>
+                        </div>
+                    </div>
+                </div>
+
+        }
+    </div>
+}
+else
+{
+    <p>No cat photos available.</p>
+}
+
+</div>

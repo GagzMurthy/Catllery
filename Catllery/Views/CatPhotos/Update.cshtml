@@ -1,0 +1,36 @@
+﻿@model Catllery.Models.CatPhoto
+
+@{
+    ViewData["Title"] = "Update Photo";
+}
+
+<h1>Update Photo</h1>
+
+<h3>Are you sure you want to update this photo?</h3>
+<div>
+    <h4>Cat Photo</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@Model.Url" class="img-fluid" alt="Cat Photo" />
+        </dd>
+    </dl>
+
+    <form asp-action="Update" method="post">
+        @Html.AntiForgeryToken() <!-- Add this line -->
+        <div class="form-group">
+            <label asp-for="Caption" class="control-label"></label>
+            <input asp-for="Caption" class="form-control" />
+            <span asp-validation-for="Caption" class="text-danger"></span>
+        </div>
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-group">
+            <input type="submit" value="Update" class="btn btn-danger" /> |
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>

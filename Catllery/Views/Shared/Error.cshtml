@@ -3,7 +3,7 @@
     ViewData["Title"] = "Error";
 }
 
-<h1 class="text-danger">Error.</h1>
+<h1 class="text-danger">Error</h1>
 <h2 class="text-danger">An error occurred while processing your request.</h2>
 
 @if (Model.ShowRequestId)
@@ -12,6 +12,16 @@
         <strong>Request ID:</strong> <code>@Model.RequestId</code>
     </p>
 }
+
+<h3>What can you do?</h3>
+<p>
+    Please try the following:
+</p>
+<ul>
+    <li>Check the URL for any mistakes.</li>
+    <li>Return to the <a asp-controller="Home" asp-action="Index">home page</a>.</li>
+    <li>If the problem persists, please contact support.</li>
+</ul>
 
 <h3>Development Mode</h3>
 <p>
